@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RIOJANROCK — Streaming Rock & Live. El rock de La Rioja, en vivo.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>RIOJANROCK — Nuestro Rock está acá</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="RIOJANROCK inicio">
+      <img src="assets/logo.svg" alt="RIOJANROCK">
+    </a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#radio">Radio</a>
+      <a href="#escena">Escena</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#historia">Historia</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="social-links" aria-label="Redes sociales de RIOJANROCK">
+      <a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="https://www.youtube.com/@riojanrocklarioja1599" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+      <a href="https://www.facebook.com/RiojanRock" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+      <a href="https://www.tiktok.com/@riojanrock" target="_blank" rel="noopener" aria-label="TikTok">TK</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> LA RIOJA · ARGENTINA · ROCK & LIVE</p>
+        <h1>Nuestro<br><em>Rock</em> está acá.</h1>
+        <p class="lead">La radio digital dedicada al rock riojano. Bandas, canciones, recitales y cultura rock de La Rioja, sin pedir permiso.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#radio">Escuchar ahora</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Ver Instagram</a>
+        </div>
+      </div>
+      <aside class="hero-agenda" aria-label="Agenda de recitales y eventos">
+        <div class="agenda-panel-head">
+          <div>
+            <span class="agenda-kicker">AGENDA</span>
+            <h2>Lo que pasa<br><em>acá.</em></h2>
+          </div>
+          <a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener" aria-label="Ver agenda completa en Instagram">IG ↗</a>
+        </div>
+        <div class="agenda-carousel" data-agenda-carousel>
+          <div class="agenda-slides" id="agendaSlides" aria-live="polite"><div class="agenda-slide is-active"><a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener"><img src="assets/agenda/01-CadenaP.jpeg" alt="Agenda RIOJANROCK — Cadena Perpetua" loading="eager"></a></div></div>
+          <button class="agenda-arrow agenda-prev" type="button" aria-label="Flyer anterior">‹</button>
+          <button class="agenda-arrow agenda-next" type="button" aria-label="Flyer siguiente">›</button>
+          <div class="agenda-dots" id="agendaDots" aria-label="Seleccionar flyer"></div>
+          <div class="agenda-loading is-hidden" id="agendaLoading">CARGANDO AGENDA…</div>
+        </div>
+        <div class="agenda-panel-foot">
+          <span>FLYERS · RECITALES · SESIONES</span>
+          <a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">VER INSTAGRAM ↗</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="radio" class="radio-section section">
+      <div class="section-label">01 / EN VIVO</div>
+      <div class="radio-grid">
+        <div>
+          <h2>Encendé la radio.</h2>
+          <p>Escuchá RIOJANROCK directamente desde esta página. El audio llega desde Zeno, pero la experiencia de escucha es propia de la radio.</p>
+
+
+        </div>
+      </div>
+
+      <div class="stats stats-horizontal" aria-label="Datos de RIOJANROCK">
+        <div><strong>+2.000</strong><span>temas de rock riojano</span></div>
+        <div><strong>+220</strong><span>bandas en el catálogo</span></div>
+        <div><strong>24/7</strong><span>cultura rock en movimiento</span></div>
+      </div>
+    </section>
+    <section id="escena" class="section dark-section">
+      <div class="section-label">02 / LA ESCENA</div>
+      <div class="section-head">
+        <div><h2>El rock de acá<br><em>tiene nombres.</em></h2></div>
+        <p>No es una radio genérica de rock. Es un archivo vivo de artistas, canciones y escenas que nacen en La Rioja.</p>
+      </div>
+      <div class="band-grid">
+        <article class="band-card"><span>01</span><h3>Bandas</h3><p>Descubrí artistas riojanos y sus historias.</p><a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Explorar ↗</a></article>
+        <article class="band-card featured"><span>02</span><h3>Entrevistas</h3><p>La voz de quienes hacen que la escena suceda.</p><a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Ver novedades ↗</a></article>
+        <article class="band-card"><span>03</span><h3>Sesiones</h3><p>Rock en vivo, registro y memoria audiovisual.</p><a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Ver contenido ↗</a></article>
+        <article class="band-card"><span>04</span><h3>Archivo</h3><p>La historia reciente del rock riojano también cuenta.</p><a href="#historia">Ir al archivo ↓</a></article>
+      </div>
+    </section>
+
+    <section id="agenda" class="section agenda-section">
+      <div class="section-label">03 / AGENDA</div>
+      <div class="section-head">
+        <h2>Lo que está<br><em>por sonar.</em></h2>
+        <p>Una agenda pensada para que el visitante encuentre rápido qué pasa, dónde y cuándo. Los eventos se pueden cargar desde el archivo de datos del sitio.</p>
+      </div>
+      <div class="agenda-empty">
+        <div class="date-block"><span>RR</span><b>LIVE</b></div>
+        <div><h3>Próximamente</h3><p>Actualizá esta agenda con recitales, festivales, transmisiones y sesiones de bandas riojanas.</p></div>
+        <a class="btn btn-ghost" href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Ver agenda en Instagram</a>
+      </div>
+    </section>
+
+    <section id="historia" class="section history">
+      <div class="section-label">04 / HISTORIA</div>
+      <div class="history-grid">
+        <div>
+          <h2>Una escena<br>que <em>insiste.</em></h2>
+          <p>RIOJANROCK trabaja como espacio de difusión y contención de la cultura rock de la Capital y del interior de La Rioja.</p>
+          <p>La propuesta fue reconocida institucionalmente: el evento Riojanroll, organizado por RiojaNRock Streaming Rock & Live, fue declarado de Interés Municipal y Cultural en 2022.</p>
+        </div>
+        <div class="timeline">
+          <div><b>2022</b><span>Riojanroll · evento declarado de Interés Municipal y Cultural.</span></div>
+          <div><b>2023</b><span>Febrero Rock · bandas riojanas + escenario nacional.</span></div>
+          <div><b>HOY</b><span>Streaming, archivo y difusión permanente de la escena.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="instagram-cta section">
+      <div class="ig-mark">◎</div>
+      <div><p class="eyebrow">SEGUÍ LA ESCENA</p><h2>RIOJANROCK<br>también está afuera.</h2></div>
+      <div class="social-cta-links">
+        <a class="btn btn-ghost" href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@riojanrocklarioja1599" target="_blank" rel="noopener">YouTube ↗</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/RiojanRock" target="_blank" rel="noopener">Facebook ↗</a>
+        <a class="btn btn-red" href="https://www.tiktok.com/@riojanrock" target="_blank" rel="noopener">TikTok ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <div class="footer-brand"><img src="assets/logo.svg" alt="RIOJANROCK"></div>
+    <div class="footer-copy"><p>Streaming Rock & Live · La Rioja, Argentina</p><p>© <span id="year"></span> RIOJANROCK</p></div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@riojanrocklarioja1599" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.facebook.com/RiojanRock" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@riojanrock" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://zeno.fm/radio/riojanrockw60gu9zfx38uv/" target="_blank" rel="noopener">Escuchar</a>
+    </div>
+  </footer>
+
+  <audio id="radioPlayer" preload="none" crossorigin="anonymous"></audio>
+
+  <div class="sticky-player" aria-label="Reproductor de RIOJANROCK">
+    <div class="sticky-inner">
+      <button class="main-play sticky-play" type="button" data-radio-play aria-label="Escuchar RIOJANROCK"><span class="play-icon">▶</span></button>
+      <div class="sticky-live"><span class="live-dot"></span><strong>RIOJANROCK</strong><span class="sticky-state" id="stickyState">EN VIVO</span></div>
+      <div class="sticky-track">
+        <small>AHORA SUENA</small>
+        <strong id="stickyNowPlaying">RIOJANROCK · STREAMING ROCK &amp; LIVE</strong>
+        <span id="stickyNowArtist">La Rioja, Argentina</span>
+      </div>
+      <label class="volume-control sticky-volume" aria-label="Volumen">
+        <span>VOL</span>
+        <input id="stickyVolume" type="range" min="0" max="1" step="0.01" value="0.85">
+      </label>
+    </div>
+  </div>
+
+  <script src="assets/agenda/agenda-data.js"></script>
+  <script src="agenda.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

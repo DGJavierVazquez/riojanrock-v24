@@ -1,0 +1,42 @@
+name: Actualizar agenda
+
+on:
+  push:
+    paths:
+      - 'assets/agenda/**'
+      - '.github/workflows/agenda.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  agenda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generar agenda-data.js
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+          agenda = Path('assets/agenda')
+          exts = {'.jpg','.jpeg','.png','.webp','.gif'}
+          items = []
+          for p in sorted(agenda.iterdir(), key=lambda x: x.name.lower()):
+              if p.is_file() and p.suffix.lower() in exts:
+                  items.append({
+                    'src': f'assets/agenda/{p.name}',
+                    'href': 'https://www.instagram.com/riojanrock/',
+                    'alt': f'Agenda RIOJANROCK — {p.stem.replace("_", " ")}'
+                  })
+          Path('assets/agenda/agenda-data.js').write_text(
+              'window.RR_AGENDA_DATA = ' + json.dumps(items, ensure_ascii=False, indent=2) + ';\n',
+              encoding='utf-8'
+          )
+      - name: Publicar cambios de agenda
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/agenda/agenda-data.js
+          git diff --cached --quiet || git commit -m 'Actualizar agenda'
+          git push
