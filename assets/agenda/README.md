@@ -1,11 +1,16 @@
 # Agenda RIOJANROCK
 
-Colocá aquí los flyers de agenda en formato JPG, JPEG, PNG o WebP.
+La Agenda usa seis posiciones fijas.
 
-Para mantener el orden usá prefijos numéricos:
+Colocá o reemplazá estos archivos en esta carpeta:
 
-- 01-Cadena.jpeg
-- 02-evento.jpg
-- 03-recital.png
+- `01.jpg`
+- `02.jpg`
+- `03.jpg`
+- `04.jpg`
+- `05.jpg`
+- `06.jpg`
 
-El archivo `agenda.json` se actualiza automáticamente en GitHub Pages mediante GitHub Actions.
+La web carga automáticamente los archivos que existan. Si todavía no existe alguna posición, simplemente no se muestra.
+
+Para actualizar un evento, reemplazá el flyer manteniendo el mismo número.

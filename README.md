@@ -1,29 +1,22 @@
 # RIOJANROCK — v24
 
-## Agenda por carpeta
+## Agenda
 
-La agenda se alimenta de `assets/agenda/`.
+La agenda usa seis posiciones fijas dentro de `assets/agenda/`:
 
-### Trabajo local
-No abras `index.html` directamente con `file://`: Chrome impide que una página enumere los archivos de una carpeta local.
+- `01.jpg`
+- `02.jpg`
+- `03.jpg`
+- `04.jpg`
+- `05.jpg`
+- `06.jpg`
 
-Usá `run-local.bat`. Esto inicia un servidor local y abre:
+La web detecta cuáles existen y arma el carrusel automáticamente. No hace falta editar JavaScript, JSON ni archivos de configuración.
 
-`http://127.0.0.1:8000`
+Para cambiar un flyer, reemplazá el archivo correspondiente manteniendo el mismo número.
 
-Después simplemente copiá tus flyers a:
+Formatos recomendados: JPG.
 
-`assets/agenda/`
+## Publicación
 
-Formatos admitidos: JPG, JPEG, PNG, WEBP y GIF.
-
-La web consulta `/api/agenda` y detecta nuevos archivos automáticamente cada 8 segundos. No hay que editar HTML, JavaScript ni `agenda.json`.
-
-Para mantener el orden, numerá los archivos:
-
-- `01-CadenaP.jpeg`
-- `02-Larra.jpeg`
-- `03-Festival.png`
-
-### Publicación
-Para GitHub Pages, la carpeta puede seguir siendo la fuente de los flyers. El proyecto debe generar `agenda-data.js` durante el deploy mediante GitHub Actions, ya que GitHub Pages es un hosting estático.
+El sitio se publica como contenido estático mediante GitHub Pages.
