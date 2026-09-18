@@ -134,3 +134,22 @@ body{padding-bottom:78px}
 .agenda-panel-foot a:hover{color:#fff}
 @media(max-width:850px){.hero-agenda{height:440px}.agenda-panel-head{padding:22px}.agenda-panel-head h2{font-size:34px}.agenda-panel-foot{padding:12px 22px}}
 @media(max-width:560px){.hero-agenda{height:430px;min-height:0}.agenda-panel-head{padding:20px}.agenda-panel-head h2{font-size:31px}.agenda-arrow{width:38px;height:38px}.agenda-panel-foot{padding:12px 20px;flex-direction:column}}
+
+
+/* YOUTUBE — últimos videos del canal, generados por GitHub Actions */
+.youtube-section{border-top:1px solid var(--line);background:#101010}
+.youtube-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#2d2927;border:1px solid #2d2927;min-height:180px}
+.youtube-card{display:flex;flex-direction:column;background:#0b0b0b;text-decoration:none;color:#eee;min-width:0;transition:background .25s ease,transform .25s ease}
+.youtube-card:hover{background:#151212;transform:translateY(-2px)}
+.youtube-thumb{position:relative;aspect-ratio:16/9;background:#050505;overflow:hidden}
+.youtube-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.youtube-play{position:absolute;left:16px;bottom:14px;width:42px;height:42px;display:grid;place-items:center;background:var(--red);color:#fff;font-size:14px}
+.youtube-info{padding:18px 18px 20px}
+.youtube-info small{display:block;margin-bottom:8px;color:#77716d;font-size:9px;letter-spacing:1.8px;text-transform:uppercase}
+.youtube-info h3{margin:0;font-size:18px;line-height:1.15;text-transform:uppercase;letter-spacing:-.2px}
+.youtube-loading{grid-column:1/-1;display:grid;place-items:center;min-height:180px;color:#77716d;font-size:10px;letter-spacing:2px}
+.youtube-empty{grid-column:1/-1;padding:40px 25px;text-align:center;color:#8f8984;font-size:13px}
+.youtube-empty strong{display:block;color:#eee;text-transform:uppercase;margin-bottom:8px;font-size:18px}
+.youtube-footer{display:flex;justify-content:flex-end;margin-top:25px}
+@media(max-width:850px){.youtube-grid{grid-template-columns:1fr 1fr}.youtube-card:last-child{grid-column:1/-1}.youtube-card:last-child .youtube-thumb{aspect-ratio:16/9}}
+@media(max-width:560px){.youtube-grid{grid-template-columns:1fr}.youtube-card:last-child{grid-column:auto}.youtube-footer{justify-content:flex-start}}

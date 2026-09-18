@@ -18,9 +18,8 @@
     </a>
     <nav class="nav" aria-label="Navegación principal">
       <a href="#radio">Radio</a>
-      <a href="#escena">Escena</a>
       <a href="#agenda">Agenda</a>
-      <a href="#historia">Historia</a>
+      <a href="#youtube">YouTube</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="social-links" aria-label="Redes sociales de RIOJANROCK">
@@ -42,7 +41,7 @@
           <a class="btn btn-ghost" href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Ver Instagram</a>
         </div>
       </div>
-      <aside class="hero-agenda" aria-label="Agenda de recitales y eventos">
+      <aside id="agenda" class="hero-agenda" aria-label="Agenda de recitales y eventos">
         <div class="agenda-panel-head">
           <div>
             <span class="agenda-kicker">AGENDA</span>
@@ -81,7 +80,24 @@
         <div><strong>24/7</strong><span>cultura rock en movimiento</span></div>
       </div>
     </section>
-    <section id="escena" class="section dark-section">
+
+    <section id="youtube" class="section youtube-section">
+      <div class="section-label">02 / EN YOUTUBE</div>
+      <div class="section-head">
+        <div><h2>Lo último de<br><em>RIOJANROCK.</em></h2></div>
+        <p>Entrevistas, sesiones, recitales y registros del rock riojano. Esta sección toma automáticamente los últimos videos publicados en nuestro canal.</p>
+      </div>
+
+      <div class="youtube-grid" id="youtubeGrid" aria-live="polite">
+        <div class="youtube-loading" id="youtubeLoading">CARGANDO YOUTUBE…</div>
+      </div>
+
+      <div class="youtube-footer">
+        <a class="btn btn-red" href="https://www.youtube.com/@riojanrocklarioja1599" target="_blank" rel="noopener">VER CANAL EN YOUTUBE ↗</a>
+      </div>
+    </section>
+    <!-- LA ESCENA: contenido temporalmente oculto hasta que tenga contenido real. -->
+    <section id="escena" class="section dark-section" hidden>
       <div class="section-label">02 / LA ESCENA</div>
       <div class="section-head">
         <div><h2>El rock de acá<br><em>tiene nombres.</em></h2></div>
@@ -95,7 +111,8 @@
       </div>
     </section>
 
-    <section id="agenda" class="section agenda-section">
+    <!-- AGENDA INFERIOR: temporalmente oculta. La agenda activa es la del hero. -->
+    <section class="section agenda-section" hidden>
       <div class="section-label">03 / AGENDA</div>
       <div class="section-head">
         <h2>Lo que está<br><em>por sonar.</em></h2>
@@ -108,7 +125,8 @@
       </div>
     </section>
 
-    <section id="historia" class="section history">
+    <!-- HISTORIA: contenido temporalmente oculto hasta nueva etapa. -->
+    <section id="historia" class="section history" hidden>
       <div class="section-label">04 / HISTORIA</div>
       <div class="history-grid">
         <div>
@@ -167,6 +185,7 @@
   </div>
 
   <script src="agenda.js"></script>
+  <script src="youtube.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

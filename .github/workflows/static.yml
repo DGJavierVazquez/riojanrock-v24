@@ -1,28 +1,23 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Deploy static site to GitHub Pages and refresh the YouTube block.
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -31,13 +26,66 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install yt-dlp
+        run: python -m pip install --quiet yt-dlp
+
+      - name: Refresh YouTube data
+        shell: bash
+        run: |
+          set +e
+          python -m yt_dlp \
+            --flat-playlist \
+            --playlist-end 3 \
+            --dump-single-json \
+            --skip-download \
+            --no-warnings \
+            "https://www.youtube.com/@riojanrocklarioja1599/videos" \
+            > /tmp/youtube-raw.json
+          YTDLP_STATUS=$?
+          set -e
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          target = Path('assets/youtube.json')
+          raw_path = Path('/tmp/youtube-raw.json')
+          videos = []
+
+          if raw_path.exists() and raw_path.stat().st_size:
+              try:
+                  raw = json.loads(raw_path.read_text(encoding='utf-8', errors='ignore'))
+                  for entry in (raw.get('entries') or [])[:3]:
+                      video_id = entry.get('id')
+                      if not video_id:
+                          continue
+                      videos.append({
+                          'id': video_id,
+                          'title': entry.get('title') or 'Video RIOJANROCK',
+                          'url': f'https://www.youtube.com/watch?v={video_id}',
+                          'thumbnail': f'https://i.ytimg.com/vi/{video_id}/hqdefault.jpg'
+                      })
+              except Exception as exc:
+                  print(f'YouTube data could not be parsed: {exc}')
+
+          if videos:
+              target.write_text(json.dumps(videos, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+              print(f'YouTube: {len(videos)} videos loaded.')
+          else:
+              if not target.exists():
+                  target.write_text('[]\n', encoding='utf-8')
+              print('YouTube feed unavailable; keeping existing fallback data.')
+          PY
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
