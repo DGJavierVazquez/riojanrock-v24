@@ -22,19 +22,5 @@
       "TEXTO DE LA NOTICIA"
     ],
     "fuente": "RIOJANROCK"
-  },
-  {
-    "id": "cadena-perpetua-la-rioja",
-    "fecha": "24/09/2026",
-    "categoria": "RECITALES",
-    "titulo": "Cadena Perpetua llega a La Rioja",
-    "bajada": "El Club de los Parecidos presenta a Cadena Perpetua este jueves 24 de septiembre en Cars Cervecería.",
-    "imagen": "assets/noticias/01.svg",
-    "texto": [
-      "Cadena Perpetua se presenta este jueves 24 de septiembre en Cars Cervecería, La Rioja.",
-      "La fecha está anunciada para las 20 hs. en Córdoba 399, con Flores como banda invitada.",
-      "RIOJANROCK acompaña la difusión de la agenda y los movimientos de la escena local."
-    ],
-    "fuente": "Flyer de agenda publicado por RIOJANROCK"
   }
 ]
