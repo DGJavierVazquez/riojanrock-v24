@@ -1,6 +1,0 @@
-name: Agenda legacy disabled
-on:
-  workflow_dispatch:
-
-# La agenda se maneja con seis archivos fijos (01.jpg a 06.jpg).
-# Este workflow se conserva solo para no romper referencias históricas.
