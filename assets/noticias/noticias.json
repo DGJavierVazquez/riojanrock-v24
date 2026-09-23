@@ -10,17 +10,5 @@
       "ACA EL TEXTO DE LA NOTA"
     ],
     "fuente": "RIOJANROCK"
-  },
-  {
-    "id": "20260923-otra-noticia-de-prueba",
-    "fecha": "23/09/2026",
-    "categoria": "NOVEDADES",
-    "titulo": "OTRA NOTICIA DE PRUEBA",
-    "bajada": "LA 9",
-    "imagen": "assets/noticias/20260923-otra-noticia-de-prueba.jpg",
-    "texto": [
-      "TEXTO DE LA NOTICIA"
-    ],
-    "fuente": "RIOJANROCK"
   }
 ]
