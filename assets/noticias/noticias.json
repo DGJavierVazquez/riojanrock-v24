@@ -12,33 +12,5 @@
       "RIOJANROCK acompaña la difusión de la agenda y los movimientos de la escena local."
     ],
     "fuente": "Flyer de agenda publicado por RIOJANROCK"
-  },
-  {
-    "id": "demo-banda-local",
-    "fecha": "27/09/2026",
-    "categoria": "BANDAS",
-    "titulo": "NOTICIA DE PRUEBA — Banda local",
-    "bajada": "Esta tarjeta es una demostración del sistema de noticias y será reemplazada por contenido real.",
-    "imagen": "assets/noticias/02.svg",
-    "texto": [
-      "Contenido de demostración para comprobar la estructura de una noticia.",
-      "Acá irá el desarrollo de una nota sobre una banda, lanzamiento, entrevista o novedad de la escena riojana.",
-      "Cuando el sistema quede operativo, esta información se reemplazará desde el archivo de noticias."
-    ],
-    "fuente": "Contenido de prueba"
-  },
-  {
-    "id": "demo-lanzamiento",
-    "fecha": "30/09/2026",
-    "categoria": "LANZAMIENTOS",
-    "titulo": "NOTICIA DE PRUEBA — Nuevo lanzamiento",
-    "bajada": "Segundo contenido de demostración para comprobar la grilla, las categorías y la página individual.",
-    "imagen": "assets/noticias/03.svg",
-    "texto": [
-      "Contenido de demostración para una futura noticia de lanzamiento.",
-      "La idea es que la portada muestre las novedades más recientes y que cada tarjeta abra una nota completa.",
-      "El sistema permite mantener la portada simple mientras el archivo de noticias crece."
-    ],
-    "fuente": "Contenido de prueba"
   }
 ]
