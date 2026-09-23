@@ -22,6 +22,6 @@ Formatos recomendados: JPG.
 El sitio se publica como contenido estático mediante GitHub Pages.
 
 
-## Panel de administración
-
-Carga de noticias: `/admin/`. Requiere un Fine-grained Personal Access Token con acceso al repositorio y `Contents: Read and write`.
+## Noticias
+La portada lee `assets/noticias/noticias.json` y muestra las 3 notas más recientes. Cada nota abre `noticia.html?id=...`.
+Para reemplazar las notas de prueba, editá el JSON y cambiá las imágenes dentro de `assets/noticias/`.

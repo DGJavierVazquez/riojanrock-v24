@@ -154,111 +154,21 @@ body{padding-bottom:78px}
 @media(max-width:850px){.youtube-grid{grid-template-columns:1fr 1fr}.youtube-card:last-child{grid-column:1/-1}.youtube-card:last-child .youtube-thumb{aspect-ratio:16/9}}
 @media(max-width:560px){.youtube-grid{grid-template-columns:1fr}.youtube-card:last-child{grid-column:auto}.youtube-footer{justify-content:flex-start}}
 
-
-/* RIOJANROCK NEWS */
-.news-section {
-  border-top: 1px solid var(--line);
-  background: #0d0d0d;
-}
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: #2d2927;
-  border: 1px solid #2d2927;
-}
-.news-card {
-  display: flex;
-  flex-direction: column;
-  background: #111;
-  color: #eee;
-  text-decoration: none;
-  min-width: 0;
-  transition: background .25s ease, transform .25s ease;
-}
-.news-card:hover {
-  background: #171313;
-  transform: translateY(-2px);
-}
-.news-thumb {
-  aspect-ratio: 16 / 10;
-  background: #080808;
-  overflow: hidden;
-}
-.news-thumb img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.news-info {
-  padding: 20px 20px 22px;
-}
-.news-meta {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 11px;
-  color: #77716d;
-  font-size: 9px;
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
-}
-.news-meta span {
-  color: var(--red);
-}
-.news-info h3 {
-  margin: 0 0 11px;
-  font-size: 22px;
-  line-height: 1.05;
-  text-transform: uppercase;
-  letter-spacing: -.4px;
-}
-.news-info p {
-  margin: 0;
-  color: #9b9590;
-  font-size: 13px;
-  line-height: 1.55;
-}
-.news-more {
-  display: inline-block;
-  margin-top: 18px;
-  color: #eee;
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-.news-loading,
-.news-empty {
-  grid-column: 1 / -1;
-  min-height: 180px;
-  display: grid;
-  place-items: center;
-  color: #77716d;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.news-footer {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 22px;
-}
-.news-error {
-  grid-column: 1 / -1;
-  padding: 45px 20px;
-  color: #88817c;
-  text-align: center;
-}
-.news-error strong {
-  display: block;
-  color: #eee;
-  margin-bottom: 8px;
-}
-@media (max-width: 850px) {
-  .news-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 560px) {
-  .news-grid { grid-template-columns: 1fr; }
-  .news-footer { justify-content: flex-start; }
-}
+/* NEWS */
+.news-section{border-top:1px solid var(--line);background:#0d0d0d}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#2d2927;border:1px solid #2d2927}
+.news-card{display:flex;flex-direction:column;background:#111;text-decoration:none;color:#eee;min-width:0;transition:background .25s ease,transform .25s ease}
+.news-card:hover{background:#171313;transform:translateY(-2px)}
+.news-thumb{aspect-ratio:16/10;background:#080808;overflow:hidden}
+.news-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.news-info{padding:20px 20px 22px}
+.news-meta{display:flex;gap:12px;align-items:center;margin-bottom:11px;color:#77716d;font-size:9px;letter-spacing:1.7px;text-transform:uppercase}
+.news-meta span{color:var(--red)}
+.news-info h3{margin:0 0 11px;font-size:22px;line-height:1.05;text-transform:uppercase;letter-spacing:-.4px}
+.news-info p{margin:0;color:#9b9590;font-size:13px;line-height:1.55}
+.news-more{display:inline-block;margin-top:18px;color:#eee;font-size:9px;letter-spacing:2px}
+.news-footer{display:flex;justify-content:flex-end;margin-top:25px}
+.news-loading,.news-empty{grid-column:1/-1;min-height:180px;display:grid;place-items:center;color:#77716d;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.news-empty strong{display:block;color:#eee;font-size:18px}
+@media(max-width:850px){.news-grid{grid-template-columns:1fr 1fr}.news-card:last-child{grid-column:1/-1}.news-card:last-child .news-thumb{aspect-ratio:16/9}}
+@media(max-width:560px){.news-grid{grid-template-columns:1fr}.news-card:last-child{grid-column:auto}.news-footer{justify-content:flex-start}}
