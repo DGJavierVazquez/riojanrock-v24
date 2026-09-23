@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>RIOJANROCK · RADIO EN VIVO</title>
+  <link rel="stylesheet" href="player.css">
+</head>
+<body>
+  <main class="player-shell">
+    <div class="brand">
+      <div class="brand-kicker"><span class="live-dot"></span> LA RIOJA · ARGENTINA</div>
+      <div class="brand-title">RIOJAN<span>ROCK</span></div>
+      <div class="brand-sub">STREAMING ROCK &amp; LIVE</div>
+    </div>
+
+    <section class="live-card" aria-label="Reproductor de RIOJANROCK">
+      <div class="status-line">
+        <span id="stateDot" class="state-dot"></span>
+        <span id="stateText">LISTO PARA ESCUCHAR</span>
+      </div>
+
+      <div class="now">
+        <small>AHORA SUENA</small>
+        <h1 id="song">RIOJANROCK</h1>
+        <p id="artist">La Rioja, Argentina</p>
+      </div>
+
+      <button id="playButton" class="play-button" type="button" aria-label="Reproducir RIOJANROCK">
+        <span id="playIcon">▶</span>
+      </button>
+
+      <label class="volume">
+        <span>VOL</span>
+        <input id="volume" type="range" min="0" max="1" step="0.01" value="0.85">
+      </label>
+
+      <audio id="audio" preload="none"></audio>
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+
+    <p class="window-note">
+      Esta ventana es independiente del sitio. Podés navegar por RIOJANROCK
+      sin interrumpir la reproducción.
+    </p>
+
+    <a class="close-link" href="#" id="closeLink">CERRAR REPRODUCTOR</a>
+  </main>
+
+  <script src="player.js"></script>
+</body>
+</html>

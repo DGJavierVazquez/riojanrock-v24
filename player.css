@@ -1,0 +1,36 @@
+*{box-sizing:border-box}
+:root{
+  --bg:#080808;
+  --panel:#121212;
+  --line:#2d2927;
+  --text:#f3efeb;
+  --muted:#918a85;
+  --red:#e5242b;
+  --green:#25d366;
+}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+body{display:flex;align-items:center;justify-content:center;padding:24px}
+.player-shell{width:min(100%,390px)}
+.brand{padding:4px 4px 24px}
+.brand-kicker{font-size:9px;letter-spacing:2px;color:#9a938d;text-transform:uppercase}
+.live-dot{display:inline-block;width:7px;height:7px;background:var(--red);border-radius:50%;margin-right:6px;vertical-align:1px}
+.brand-title{margin-top:11px;font-size:48px;line-height:.9;font-weight:900;letter-spacing:-3px}
+.brand-title span{color:var(--red)}
+.brand-sub{margin-top:9px;font-size:9px;letter-spacing:2.3px;color:#8e8782}
+.live-card{background:linear-gradient(180deg,#151515,#101010);border:1px solid var(--line);padding:24px 20px 20px;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.status-line{display:flex;align-items:center;gap:7px;color:#8f8882;font-size:9px;letter-spacing:1.8px;text-transform:uppercase}
+.state-dot{width:7px;height:7px;border-radius:50%;background:#5d5753}
+.state-dot.is-live{background:var(--green);box-shadow:0 0 12px rgba(37,211,102,.45)}
+.now{padding:34px 0 26px}
+.now small{font-size:9px;color:var(--red);letter-spacing:2px}
+.now h1{margin:10px 0 7px;font-size:29px;line-height:1.08;text-transform:uppercase;letter-spacing:-.8px;word-break:break-word}
+.now p{margin:0;color:var(--muted);font-size:12px}
+.play-button{display:grid;place-items:center;width:84px;height:84px;margin:0 auto 28px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:30px;cursor:pointer;box-shadow:0 14px 35px rgba(229,36,43,.24)}
+.play-button:active{transform:scale(.98)}
+.play-button:focus-visible{outline:3px solid #fff;outline-offset:5px}
+.volume{display:flex;align-items:center;gap:10px;color:#77716d;font-size:9px;letter-spacing:2px}
+.volume input{width:100%;accent-color:var(--red)}
+.message{min-height:18px;margin:13px 0 0;color:#8a837e;font-size:10px;line-height:1.45;text-align:center}
+.window-note{margin:14px 4px 10px;color:#706965;text-align:center;font-size:10px;line-height:1.5}
+.close-link{display:block;text-align:center;color:#8c8580;text-decoration:none;font-size:9px;letter-spacing:1.8px}
+.close-link:hover{color:#fff}

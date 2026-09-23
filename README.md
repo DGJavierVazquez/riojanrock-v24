@@ -25,3 +25,7 @@ El sitio se publica como contenido estático mediante GitHub Pages.
 ## Noticias
 La portada lee `assets/noticias/noticias.json` y muestra las 3 notas más recientes. Cada nota abre `noticia.html?id=...`.
 Para reemplazar las notas de prueba, editá el JSON y cambiá las imágenes dentro de `assets/noticias/`.
+
+## Reproductor independiente
+
+`player.html` abre un reproductor en una ventana separada. La reproducción no depende de la navegación del sitio principal. `player.js` mantiene el stream de Zeno y los metadatos SSE.

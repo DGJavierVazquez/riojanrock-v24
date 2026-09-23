@@ -86,7 +86,7 @@
         <h1>Nuestro<br><em>Rock</em> está acá.</h1>
         <p class="lead">La radio digital dedicada al rock riojano. Bandas, canciones, recitales y cultura rock de La Rioja, sin pedir permiso.</p>
         <div class="hero-actions">
-          <a class="btn btn-red" href="#radio">Escuchar ahora</a>
+          <a class="btn btn-red" href="player.html" data-open-player>Escuchar ahora ↗</a>
           <a class="btn btn-ghost" href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">Ver Instagram</a>
         </div>
       </div>
@@ -118,6 +118,7 @@
         <div>
           <h2>Encendé la radio.</h2>
           <p>Escuchá RIOJANROCK directamente desde esta página. El audio llega desde Zeno, pero la experiencia de escucha es propia de la radio.</p>
+          <a id="openRadioPlayer" class="btn btn-red" href="player.html" data-open-player>ABRIR REPRODUCTOR ↗</a>
 
 
         </div>
@@ -226,27 +227,9 @@
       <a href="https://www.youtube.com/@riojanrocklarioja1599" target="_blank" rel="noopener">YouTube</a>
       <a href="https://www.facebook.com/RiojanRock" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.tiktok.com/@riojanrock" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://zeno.fm/radio/riojanrockw60gu9zfx38uv/" target="_blank" rel="noopener">Escuchar</a>
+      <a href="player.html" data-open-player>Escuchar ↗</a>
     </div>
   </footer>
-
-  <audio id="radioPlayer" preload="none" crossorigin="anonymous"></audio>
-
-  <div class="sticky-player" aria-label="Reproductor de RIOJANROCK">
-    <div class="sticky-inner">
-      <button class="main-play sticky-play" type="button" data-radio-play aria-label="Escuchar RIOJANROCK"><span class="play-icon">▶</span></button>
-      <div class="sticky-live"><span class="live-dot"></span><strong>RIOJANROCK</strong><span class="sticky-state" id="stickyState">EN VIVO</span></div>
-      <div class="sticky-track">
-        <small>AHORA SUENA</small>
-        <strong id="stickyNowPlaying">RIOJANROCK · STREAMING ROCK &amp; LIVE</strong>
-        <span id="stickyNowArtist">La Rioja, Argentina</span>
-      </div>
-      <label class="volume-control sticky-volume" aria-label="Volumen">
-        <span>VOL</span>
-        <input id="stickyVolume" type="range" min="0" max="1" step="0.01" value="0.85">
-      </label>
-    </div>
-  </div>
 
   <script src="agenda.js"></script>
   <script src="noticias.js"></script>
