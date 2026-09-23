@@ -67,6 +67,7 @@
     <nav class="nav" aria-label="Navegación principal">
       <a href="#radio">Radio</a>
       <a href="#agenda">Agenda</a>
+      <a href="#noticias">Noticias</a>
       <a href="#youtube">YouTube</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -129,8 +130,25 @@
       </div>
     </section>
 
+
+    <section id="noticias" class="section news-section">
+      <div class="section-label">02 / NOTICIAS</div>
+      <div class="section-head">
+        <div><h2>Lo último del<br><em>rock riojano.</em></h2></div>
+        <p>Noticias, recitales, bandas, lanzamientos y novedades de la escena de La Rioja. Las publicaciones se cargan desde el panel de administración.</p>
+      </div>
+
+      <div class="news-grid" id="newsGrid" aria-live="polite">
+        <div class="news-loading" id="newsLoading">CARGANDO NOTICIAS…</div>
+      </div>
+
+      <div class="news-footer">
+        <a class="btn btn-ghost" href="admin/" target="_blank" rel="noopener">ADMINISTRAR NOTICIAS ↗</a>
+      </div>
+    </section>
+
     <section id="youtube" class="section youtube-section">
-      <div class="section-label">02 / EN YOUTUBE</div>
+      <div class="section-label">03 / EN YOUTUBE</div>
       <div class="section-head">
         <div><h2>Lo último de<br><em>RIOJANROCK.</em></h2></div>
         <p>Entrevistas, sesiones, recitales y registros del rock riojano. Esta sección toma automáticamente los últimos videos publicados en nuestro canal.</p>
@@ -234,6 +252,7 @@
 
   <script src="agenda.js"></script>
   <script src="youtube.js"></script>
+<script src="noticias.js"></script>
   <script src="script.js"></script>
 
 <!-- WHATSAPP FLOATING BUTTON START -->

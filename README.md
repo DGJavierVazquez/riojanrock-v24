@@ -20,3 +20,8 @@ Formatos recomendados: JPG.
 ## Publicación
 
 El sitio se publica como contenido estático mediante GitHub Pages.
+
+
+## Panel de administración
+
+Carga de noticias: `/admin/`. Requiere un Fine-grained Personal Access Token con acceso al repositorio y `Contents: Read and write`.
