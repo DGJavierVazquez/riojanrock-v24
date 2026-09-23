@@ -13,7 +13,7 @@
       <div>
         <div class="eyebrow">RIOJANROCK / ADMIN</div>
         <h1>Panel de noticias</h1>
-        <p>Publicá una noticia sin editar <code>noticias.json</code>.</p>
+        <p>Publicá, editá y eliminá noticias sin modificar <code>noticias.json</code>.</p>
       </div>
       <a href="../index.html" class="back-link">VOLVER AL SITIO ↗</a>
     </header>
@@ -22,24 +22,20 @@
       <div class="panel-label">ACCESO</div>
       <h2>Conectar con GitHub</h2>
       <p class="muted">
-        El panel publica directamente en el repositorio de RIOJANROCK mediante
-        la API de GitHub. Pegá un <strong>Fine-grained Personal Access Token</strong>
-        con permiso <strong>Contents: Read and write</strong> solamente para este repositorio.
+        El panel publica directamente en el repositorio de RIOJANROCK mediante la API de GitHub.
+        Usá un <strong>Fine-grained Personal Access Token</strong> limitado a este repositorio con
+        <strong>Contents: Read and write</strong>.
       </p>
 
       <label>
         Token de GitHub
-        <input id="token" type="password" autocomplete="off" spellcheck="false"
-          placeholder="github_pat_..." />
+        <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_...">
       </label>
 
       <div class="actions">
         <button id="connectBtn" class="btn primary">CONECTAR</button>
-        <a
-          href="https://github.com/settings/personal-access-tokens/fine-grained"
-          target="_blank" rel="noopener"
-          class="btn ghost"
-        >CREAR TOKEN EN GITHUB ↗</a>
+        <a href="https://github.com/settings/personal-access-tokens/new"
+           target="_blank" rel="noopener" class="btn ghost">CREAR TOKEN EN GITHUB ↗</a>
       </div>
 
       <div id="loginStatus" class="status" role="status" aria-live="polite"></div>
@@ -52,98 +48,117 @@
           <li>Seleccioná: <strong>riojanrock-v24</strong>.</li>
           <li>Repository permissions → <strong>Contents: Read and write</strong>.</li>
         </ol>
-        <p>El token no se guarda en el código del sitio. Mientras uses el panel queda en la memoria de esta pestaña.</p>
+        <p>El token no se guarda en el código del sitio. Se mantiene solo en la memoria de esta pestaña.</p>
       </details>
     </section>
 
-    <section id="adminView" class="panel hidden">
-      <div class="toolbar">
+    <section id="adminView" class="hidden">
+      <div class="toolbar panel">
         <div>
-          <div class="panel-label">NUEVA NOTICIA</div>
-          <h2>Publicar</h2>
+          <div class="panel-label">CONTENIDO</div>
+          <h2>Noticias</h2>
         </div>
-        <button id="logoutBtn" class="btn ghost small">CERRAR SESIÓN</button>
+        <div class="actions">
+          <button id="newBtn" class="btn primary">NUEVA NOTICIA</button>
+          <button id="reloadBtn" class="btn ghost">ACTUALIZAR LISTA</button>
+          <button id="logoutBtn" class="btn ghost small">CERRAR SESIÓN</button>
+        </div>
       </div>
 
-      <form id="newsForm" novalidate>
-        <div class="grid two">
-          <label>
-            Título *
-            <input id="title" name="title" required maxlength="120"
-              placeholder="Ej.: Cadena Perpetua llega a La Rioja">
-          </label>
+      <section class="panel">
+        <div id="newsList" class="news-list">
+          <div class="empty-state">Cargando noticias…</div>
+        </div>
+      </section>
 
-          <label>
-            Categoría *
-            <select id="category" name="category" required>
-              <option value="RECITALES">RECITALES</option>
-              <option value="BANDAS">BANDAS</option>
-              <option value="LANZAMIENTOS">LANZAMIENTOS</option>
-              <option value="ENTREVISTAS">ENTREVISTAS</option>
-              <option value="SESIONES">SESIONES</option>
-              <option value="CULTURA ROCK">CULTURA ROCK</option>
-              <option value="NOVEDADES">NOVEDADES</option>
-            </select>
-          </label>
+      <section id="formPanel" class="panel hidden">
+        <div class="toolbar">
+          <div>
+            <div class="panel-label">EDITOR</div>
+            <h2 id="formHeading">Nueva noticia</h2>
+          </div>
+          <button id="cancelEditBtn" type="button" class="btn ghost">CANCELAR</button>
         </div>
 
-        <div class="grid two">
+        <form id="newsForm" novalidate>
+          <div class="grid two">
+            <label>
+              Título *
+              <input id="title" name="title" required maxlength="120"
+                placeholder="Ej.: Cadena Perpetua llega a La Rioja">
+            </label>
+
+            <label>
+              Categoría *
+              <select id="category" name="category" required>
+                <option value="RECITALES">RECITALES</option>
+                <option value="BANDAS">BANDAS</option>
+                <option value="LANZAMIENTOS">LANZAMIENTOS</option>
+                <option value="ENTREVISTAS">ENTREVISTAS</option>
+                <option value="SESIONES">SESIONES</option>
+                <option value="CULTURA ROCK">CULTURA ROCK</option>
+                <option value="NOVEDADES">NOVEDADES</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label>
+              Fecha *
+              <input id="date" name="date" type="date" required>
+            </label>
+
+            <label>
+              Nueva imagen
+              <input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp">
+              <span id="imageHelp" class="field-help">Obligatoria al crear. Al editar, dejala vacía para conservar la imagen actual.</span>
+            </label>
+          </div>
+
+          <div id="currentImageRow" class="current-image-row hidden">
+            <div class="panel-label">IMAGEN ACTUAL</div>
+            <img id="currentImage" alt="Imagen actual de la noticia">
+          </div>
+
           <label>
-            Fecha *
-            <input id="date" name="date" type="date" required>
+            Bajada *
+            <textarea id="excerpt" name="excerpt" rows="3" maxlength="260" required
+              placeholder="El texto breve que aparecerá en la portada."></textarea>
           </label>
 
           <label>
-            Imagen *
-            <input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp" required>
-            <span class="field-help">Se optimiza automáticamente para la web.</span>
+            Texto de la noticia *
+            <textarea id="body" name="body" rows="10" required
+              placeholder="Escribí un párrafo por bloque. Dejá una línea en blanco entre párrafos."></textarea>
           </label>
-        </div>
 
-        <label>
-          Bajada *
-          <textarea id="excerpt" name="excerpt" rows="3" maxlength="260" required
-            placeholder="El texto breve que aparecerá en la portada."></textarea>
-        </label>
+          <label>
+            Fuente
+            <input id="source" name="source" maxlength="160" value="RIOJANROCK"
+              placeholder="Ej.: RIOJANROCK / comunicado de la banda / flyer oficial">
+          </label>
 
-        <label>
-          Texto de la noticia *
-          <textarea id="body" name="body" rows="10" required
-            placeholder="Escribí un párrafo por bloque. Dejá una línea en blanco entre párrafos."></textarea>
-        </label>
-
-        <label>
-          Fuente
-          <input id="source" name="source" maxlength="160" value="RIOJANROCK"
-            placeholder="Ej.: RIOJANROCK / comunicado de la banda / flyer oficial">
-        </label>
-
-        <div class="preview-wrap">
-          <div class="panel-label">VISTA PREVIA</div>
-          <div class="preview">
-            <img id="previewImage" alt="Vista previa" hidden>
-            <div id="previewPlaceholder">Seleccioná una imagen para previsualizarla.</div>
-            <div class="preview-copy">
-              <div id="previewMeta">NOVEDADES · FECHA</div>
-              <h3 id="previewTitle">Título de la noticia</h3>
-              <p id="previewExcerpt">La bajada aparecerá acá.</p>
+          <div class="preview-wrap">
+            <div class="panel-label">VISTA PREVIA</div>
+            <div class="preview">
+              <img id="previewImage" alt="Vista previa" hidden>
+              <div id="previewPlaceholder">Seleccioná una imagen para previsualizarla.</div>
+              <div class="preview-copy">
+                <div id="previewMeta">NOVEDADES · FECHA</div>
+                <h3 id="previewTitle">Título de la noticia</h3>
+                <p id="previewExcerpt">La bajada aparecerá acá.</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="actions">
-          <button id="publishBtn" type="submit" class="btn primary">PUBLICAR NOTICIA</button>
-          <button id="clearBtn" type="button" class="btn ghost">LIMPIAR</button>
-        </div>
+          <div class="actions">
+            <button id="publishBtn" type="submit" class="btn primary">PUBLICAR NOTICIA</button>
+            <button id="clearBtn" type="button" class="btn ghost">LIMPIAR</button>
+          </div>
 
-        <div id="publishStatus" class="status" role="status" aria-live="polite"></div>
-      </form>
-
-      <div class="notice">
-        <strong>Qué ocurre al publicar:</strong>
-        la imagen y el archivo de noticias se escriben en GitHub. Después GitHub Pages
-        reconstruye el sitio y la noticia pasa a formar parte de la portada.
-      </div>
+          <div id="publishStatus" class="status" role="status" aria-live="polite"></div>
+        </form>
+      </section>
     </section>
   </main>
 
