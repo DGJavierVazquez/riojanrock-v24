@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "20260923-prueba-3",
+    "fecha": "23/09/2026",
+    "categoria": "SESIONES",
+    "titulo": "NOTICIA EDITADA",
+    "bajada": "EDITADA",
+    "imagen": "assets/noticias/20260923-noticia-editada.jpg",
+    "texto": [
+      "ACA EL TEXTO DE LA NOTA EDITADA"
+    ],
+    "fuente": "RIOJANROCK"
+  }
+]
