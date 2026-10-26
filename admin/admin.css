@@ -74,3 +74,13 @@ code{color:#ddd}
 .media-box .panel-label{margin-bottom:7px}
 .media-note{margin:0 0 18px;color:#8f8882;font-size:12px;line-height:1.6}
 .media-box label:last-child{margin-bottom:0}
+
+
+/* Tipo de publicación: Actualidad / Archivo Vintage */
+.publication-type-box{margin:0 0 24px;padding:18px;border:1px solid var(--line);background:#0d0d0d}
+.publication-type-box .panel-label{margin-bottom:6px}
+.publication-type-box .media-note{margin:0 0 15px;color:#8f8882;font-size:12px;line-height:1.55}
+.publication-type-box label{margin-bottom:0}
+.publication-badge{font-weight:700;font-size:9px;letter-spacing:1px}
+.publication-badge.vintage{color:#e6b96b}
+.publication-badge.actual{color:#9a928c}

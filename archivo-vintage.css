@@ -1,0 +1,10 @@
+/* Archivo Vintage — usa estilos editoriales compartidos */
+.vintage-intro .section-label{color:#e6b96b}
+.vintage-intro h1 em{color:#e6b96b}
+.vintage-main .archive-kicker{color:#bba177}
+.vintage-year-label{grid-column:1;grid-row:3;display:block;color:#89827d;font-size:9px;letter-spacing:1.6px;text-transform:uppercase}
+#vintageYearFilter{grid-column:1;grid-row:4;width:100%;height:47px;margin-top:0;border:1px solid #373230;border-radius:0;background:#111;color:#eee;padding:0 14px;font:inherit;font-size:12px}
+#vintageResults{grid-row:5}
+.vintage-ribbon{display:inline-block;color:#e6b96b;border:1px solid #6f512d;padding:7px 9px;margin:0 0 14px;font-size:8px;letter-spacing:1.3px;text-transform:uppercase}
+.vintage-card .archive-card-meta span,.vintage-card .archive-read{color:#e6b96b}
+@media(max-width:650px){.vintage-year-label,#vintageYearFilter,#vintageResults{grid-column:1;grid-row:auto}}

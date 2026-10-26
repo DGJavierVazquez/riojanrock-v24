@@ -81,7 +81,19 @@
         </div>
 
         <form id="newsForm" novalidate>
-          <div class="grid two">
+          
+          <div class="publication-type-box">
+            <div class="panel-label">TIPO DE PUBLICACIÓN</div>
+            <p class="media-note">Elegí dónde debe aparecer esta nota. Las crónicas recuperadas de Vintage La Rioja van al archivo histórico, separadas de las noticias actuales.</p>
+            <label>
+              Sección *
+              <select id="publicationType" name="publicationType" required>
+                <option value="actual">NOTICIA ACTUAL</option>
+                <option value="vintage">ARCHIVO VINTAGE · CRÓNICA HISTÓRICA</option>
+              </select>
+            </label>
+          </div>
+<div class="grid two">
             <label>
               Título *
               <input id="title" name="title" required maxlength="120"

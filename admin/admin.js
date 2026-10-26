@@ -285,6 +285,7 @@
         <div>
           <div class="news-row-meta">
             <span>${escapeHtml(item.categoria || 'NOVEDADES')}</span> · ${escapeHtml(item.fecha || '')}
+            · <b class="publication-badge ${item.tipoPublicacion === 'vintage' ? 'vintage' : 'actual'}">${item.tipoPublicacion === 'vintage' ? 'ARCHIVO VINTAGE' : 'ACTUALIDAD'}</b>
           </div>
           <h3>${escapeHtml(item.titulo || '')}</h3>
           <p>${escapeHtml(item.bajada || '')}</p>
@@ -310,6 +311,7 @@
     form.reset();
     $('date').value = new Date().toISOString().slice(0,10);
     $('source').value = 'RIOJANROCK';
+    $('publicationType').value = 'actual';
     $('musicPlatform').value = 'none';
     $('musicUrl').value = '';
     $('musicCaption').value = 'Escuchá a la banda';
@@ -341,6 +343,7 @@
     $('excerpt').value = item.bajada || '';
     $('body').value = Array.isArray(item.texto) ? item.texto.join('\n\n') : '';
     $('source').value = item.fuente || 'RIOJANROCK';
+    $('publicationType').value = item.tipoPublicacion === 'vintage' ? 'vintage' : 'actual';
     $('musicPlatform').value = item.materialMusical?.platform || 'none';
     $('musicUrl').value = item.materialMusical?.url || '';
     $('musicCaption').value = item.materialMusical?.caption || 'Escuchá a la banda';
@@ -449,6 +452,7 @@
         imagen: imagePath,
         texto: paragraphs,
         fuente: source,
+        tipoPublicacion: $('publicationType').value === 'vintage' ? 'vintage' : 'actual',
         ...(materialMusical ? { materialMusical } : {})
       };
 

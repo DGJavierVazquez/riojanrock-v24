@@ -70,7 +70,7 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       if (!Array.isArray(data)) throw new Error('El archivo de noticias no tiene el formato esperado.');
-      allNews = data;
+      allNews = data.filter(item => item.tipoPublicacion !== 'vintage');
       buildCategories();
       render();
     } catch (error) {

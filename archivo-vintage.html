@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Archivo Vintage: crónicas originales de Vintage La Rioja recuperadas por RIOJANROCK.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="index,follow">
+  <title>Archivo Vintage · RIOJANROCK</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="noticias-archivo.css">
+  <link rel="stylesheet" href="archivo-vintage.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html#inicio" aria-label="RIOJANROCK inicio">
+      <img src="assets/logo.svg" alt="RIOJANROCK">
+    </a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html#radio">Radio</a>
+      <a href="index.html#agenda">Agenda</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="archivo-vintage.html" aria-current="page">Archivo Vintage</a>
+      <a href="index.html#youtube">YouTube</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="archive-header-actions">
+      <a class="btn btn-red" href="player.html" data-open-player>ESCUCHAR ↗</a>
+    </div>
+  </header>
+
+  <main class="archive-main vintage-main">
+    <div class="archive-topline">
+      <a href="index.html#inicio" class="archive-back">← VOLVER AL INICIO</a>
+      <span class="archive-kicker"><span class="live-dot"></span> RIOJANROCK · MEMORIA DEL ROCK</span>
+    </div>
+
+    <section class="archive-intro vintage-intro">
+      <div class="section-label">ARCHIVO HISTÓRICO</div>
+      <h1>Archivo<br><em>Vintage.</em></h1>
+      <p>Crónicas originales de Vintage La Rioja recuperadas y preservadas como parte de la memoria del rock riojano. Se conserva la fecha original de cada publicación.</p>
+    </section>
+
+    <section class="archive-controls" aria-label="Buscar y filtrar crónicas históricas">
+      <label class="archive-search-label" for="vintageSearch">BUSCAR EN EL ARCHIVO</label>
+      <input id="vintageSearch" type="search" placeholder="Buscar banda, título o tema…" autocomplete="off">
+      <label class="archive-category-label" for="vintageCategoryFilter">CATEGORÍA</label>
+      <select id="vintageCategoryFilter"><option value="all">TODAS LAS CATEGORÍAS</option></select>
+      <label class="vintage-year-label" for="vintageYearFilter">AÑO ORIGINAL</label>
+      <select id="vintageYearFilter"><option value="all">TODOS LOS AÑOS</option></select>
+      <div class="archive-results" id="vintageResults" aria-live="polite">CARGANDO ARCHIVO…</div>
+    </section>
+
+    <section class="archive-grid" id="vintageGrid" aria-live="polite">
+      <div class="archive-loading">CARGANDO ARCHIVO VINTAGE…</div>
+    </section>
+
+    <div class="archive-bottom">
+      <a class="btn btn-ghost" href="noticias.html">VER NOTICIAS ACTUALES ↗</a>
+      <a class="btn btn-red" href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">SEGUIR EN INSTAGRAM ↗</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> RIOJANROCK · ARCHIVO VINTAGE.</span>
+    <a href="index.html#inicio">VOLVER ARRIBA ↑</a>
+  </footer>
+
+  <script src="archivo-vintage.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -18,13 +18,23 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const items = await response.json();
 
-      if (!Array.isArray(items) || !items.length) {
-        throw new Error('Sin noticias');
+      if (!Array.isArray(items)) {
+        throw new Error('Formato de noticias no válido');
       }
 
+      const currentItems = items.filter(item => item.tipoPublicacion !== 'vintage');
       if (loading) loading.remove();
 
-      grid.innerHTML = items.slice(0, 3).map(item => `
+      if (!currentItems.length) {
+        grid.innerHTML = `
+          <div class="news-empty">
+            <strong>Noticias</strong>
+            <span>Las novedades de actualidad aparecerán aquí.</span>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = currentItems.slice(0, 3).map(item => `
         <a class="news-card" href="noticia.html?id=${encodeURIComponent(item.id)}">
           <div class="news-thumb">
             <img src="${esc(item.imagen)}" alt="${esc(item.titulo)}" loading="lazy">

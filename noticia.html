@@ -30,6 +30,7 @@
     .article-media-link{display:inline-flex;margin-top:4px;color:#fff;background:var(--red);padding:13px 18px;text-decoration:none;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}
     @media(max-width:600px){.article-media{padding:15px}.article-media-caption{font-size:13px}}
 
+    .vintage-note-label{display:inline-block;margin:0 0 24px;padding:9px 12px;border:1px solid #7c5a2e;color:#e6b96b;font-size:9px;letter-spacing:1.8px;text-transform:uppercase}
   </style>
 </head>
 <body>
@@ -40,6 +41,7 @@
       <a href="index.html#radio">Radio</a>
       <a href="index.html#agenda">Agenda</a>
       <a href="noticias.html">Noticias</a>
+      <a href="archivo-vintage.html">Archivo Vintage</a>
       <a href="index.html#youtube">YouTube</a>
       <a href="index.html#contacto">Contacto</a>
     </nav>
@@ -118,8 +120,9 @@
         if (!item) throw new Error();
         document.title = `${item.titulo} · RIOJANROCK`;
         root.innerHTML = `
-          <a class="article-back" href="noticias.html">← Volver a noticias</a>
+          <a class="article-back" href="${item.tipoPublicacion === 'vintage' ? 'archivo-vintage.html' : 'noticias.html'}">← Volver al archivo</a>
           <div class="article-meta"><span>${esc(item.categoria)}</span><time>${esc(item.fecha)}</time></div>
+          ${item.tipoPublicacion === 'vintage' ? '<div class="vintage-note-label">ARCHIVO VINTAGE · PUBLICACIÓN ORIGINAL RECUPERADA</div>' : ''}
           <h1>${esc(item.titulo)}</h1>
           <p class="article-bajada">${esc(item.bajada)}</p>
           <img class="article-hero" src="${esc(item.imagen)}" alt="${esc(item.titulo)}">
