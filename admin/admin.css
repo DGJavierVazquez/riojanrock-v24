@@ -67,3 +67,10 @@ code{color:#ddd}
   .preview{grid-template-columns:1fr}
   .preview img{min-height:220px}
 }
+
+
+/* MATERIAL MUSICAL OPCIONAL */
+.media-box{margin:26px 0;padding:20px;border:1px solid var(--line);background:#0d0d0d}
+.media-box .panel-label{margin-bottom:7px}
+.media-note{margin:0 0 18px;color:#8f8882;font-size:12px;line-height:1.6}
+.media-box label:last-child{margin-bottom:0}

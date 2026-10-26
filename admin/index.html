@@ -138,6 +138,37 @@
               placeholder="Ej.: RIOJANROCK / comunicado de la banda / flyer oficial">
           </label>
 
+          <div class="media-box">
+            <div class="panel-label">MATERIAL MUSICAL (OPCIONAL)</div>
+            <p class="media-note">Pegá el enlace público del tema o video. La nota mostrará un reproductor oficial cuando la plataforma lo permita. Si no hay música asociada, dejá “Sin material musical”.</p>
+
+            <div class="grid two">
+              <label>
+                Plataforma
+                <select id="musicPlatform" name="musicPlatform">
+                  <option value="none">SIN MATERIAL MUSICAL</option>
+                  <option value="youtube">YOUTUBE · VIDEO</option>
+                  <option value="spotify">SPOTIFY · TEMA / ÁLBUM</option>
+                  <option value="soundcloud">SOUNDCLOUD · AUDIO</option>
+                  <option value="link">OTRO ENLACE EXTERNO</option>
+                </select>
+              </label>
+
+              <label>
+                URL del tema o video
+                <input id="musicUrl" name="musicUrl" type="url" inputmode="url"
+                  placeholder="https://..." autocomplete="url">
+              </label>
+            </div>
+
+            <label>
+              Texto de presentación
+              <input id="musicCaption" name="musicCaption" maxlength="120"
+                value="Escuchá a la banda"
+                placeholder="Ej.: Escuchá Diciembre">
+            </label>
+          </div>
+
           <div class="preview-wrap">
             <div class="panel-label">VISTA PREVIA</div>
             <div class="preview">

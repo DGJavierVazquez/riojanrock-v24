@@ -174,6 +174,72 @@
     }
   }
 
+  function readMusicForm() {
+    const platform = $('musicPlatform').value;
+    const urlText = $('musicUrl').value.trim();
+    const caption = $('musicCaption').value.trim() || 'Escuchá a la banda';
+
+    if (platform === 'none') {
+      if (urlText) throw new Error('Elegí la plataforma correspondiente o borrá la URL.');
+      return null;
+    }
+
+    if (!urlText) throw new Error('Pegá la URL del tema o video, o elegí “Sin material musical”.');
+
+    let parsed;
+    try {
+      parsed = new URL(urlText);
+    } catch {
+      throw new Error('La URL musical no parece válida.');
+    }
+
+    if (parsed.protocol !== 'https:') {
+      throw new Error('Usá un enlace HTTPS público.');
+    }
+
+    const host = parsed.hostname.toLowerCase().replace(/^www\./, '');
+    const isYoutubeHost = ['youtube.com', 'm.youtube.com', 'youtu.be', 'youtube-nocookie.com'].includes(host);
+    const isSpotifyHost = host === 'open.spotify.com';
+    const isSoundCloudHost = host === 'soundcloud.com' || host === 'on.soundcloud.com';
+
+    if (platform === 'youtube') {
+      if (!isYoutubeHost) throw new Error('La URL seleccionada no pertenece a YouTube.');
+      const videoId = getYouTubeId(urlText);
+      if (!videoId) throw new Error('No pude identificar el video. Pegá un enlace normal de YouTube o youtu.be.');
+    } else if (platform === 'spotify') {
+      if (!isSpotifyHost || !/^\/(embed\/)?(track|album|playlist|episode|show)\/[A-Za-z0-9]+/.test(parsed.pathname)) {
+        throw new Error('Pegá un enlace de Spotify a una canción, álbum, lista o episodio.');
+      }
+    } else if (platform === 'soundcloud') {
+      if (!isSoundCloudHost) throw new Error('La URL seleccionada no pertenece a SoundCloud.');
+      if (host === 'on.soundcloud.com') throw new Error('Abrí el enlace corto de SoundCloud y copiá la URL completa de soundcloud.com.');
+    } else if (platform === 'link') {
+      // Any HTTPS URL is accepted as a simple external link; it will not be embedded.
+    } else {
+      throw new Error('Seleccioná una plataforma válida.');
+    }
+
+    return { platform, url: parsed.href, caption };
+  }
+
+  function getYouTubeId(value) {
+    try {
+      const u = new URL(value);
+      const host = u.hostname.toLowerCase().replace(/^www\./, '');
+      let id = '';
+      if (host === 'youtu.be') {
+        id = u.pathname.split('/').filter(Boolean)[0] || '';
+      } else {
+        const parts = u.pathname.split('/').filter(Boolean);
+        if (u.pathname === '/watch') id = u.searchParams.get('v') || '';
+        else if (['embed', 'shorts', 'live'].includes(parts[0])) id = parts[1] || '';
+      }
+      return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : '';
+    } catch {
+      return '';
+    }
+  }
+
   async function connect() {
     const value = tokenInput.value.trim();
     if (!value) {
@@ -244,6 +310,9 @@
     form.reset();
     $('date').value = new Date().toISOString().slice(0,10);
     $('source').value = 'RIOJANROCK';
+    $('musicPlatform').value = 'none';
+    $('musicUrl').value = '';
+    $('musicCaption').value = 'Escuchá a la banda';
     $('formHeading').textContent = 'Nueva noticia';
     publishBtn.textContent = 'PUBLICAR NOTICIA';
     $('imageHelp').textContent = 'Obligatoria al crear. Al editar, dejala vacía para conservar la imagen actual.';
@@ -272,6 +341,9 @@
     $('excerpt').value = item.bajada || '';
     $('body').value = Array.isArray(item.texto) ? item.texto.join('\n\n') : '';
     $('source').value = item.fuente || 'RIOJANROCK';
+    $('musicPlatform').value = item.materialMusical?.platform || 'none';
+    $('musicUrl').value = item.materialMusical?.url || '';
+    $('musicCaption').value = item.materialMusical?.caption || 'Escuchá a la banda';
     imageInput.value = '';
 
     $('formHeading').textContent = 'Editar noticia';
@@ -306,6 +378,14 @@
     const body = $('body').value.trim();
     const source = $('source').value.trim() || 'RIOJANROCK';
     const file = imageInput.files?.[0];
+
+    let materialMusical;
+    try {
+      materialMusical = readMusicForm();
+    } catch (error) {
+      setStatus(publishStatus, error.message, 'err');
+      return;
+    }
 
     if (!title || !category || !date || !excerpt || !body) {
       setStatus(publishStatus, 'Completá todos los campos obligatorios.', 'err');
@@ -368,7 +448,8 @@
         bajada: excerpt,
         imagen: imagePath,
         texto: paragraphs,
-        fuente: source
+        fuente: source,
+        ...(materialMusical ? { materialMusical } : {})
       };
 
       let nextItems;
