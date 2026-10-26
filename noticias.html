@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Archivo de noticias de RIOJANROCK: bandas, recitales, lanzamientos y cultura rock de La Rioja.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="index,follow">
+  <title>Noticias · RIOJANROCK</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="noticias-archivo.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html#inicio" aria-label="RIOJANROCK inicio">
+      <img src="assets/logo.svg" alt="RIOJANROCK">
+    </a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html#radio">Radio</a>
+      <a href="index.html#agenda">Agenda</a>
+      <a href="noticias.html" aria-current="page">Noticias</a>
+      <a href="index.html#youtube">YouTube</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="archive-header-actions">
+      <a class="btn btn-red" href="player.html" data-open-player>ESCUCHAR ↗</a>
+    </div>
+  </header>
+
+  <main class="archive-main">
+    <div class="archive-topline">
+      <a href="index.html#noticias" class="archive-back">← VOLVER AL INICIO</a>
+      <span class="archive-kicker"><span class="live-dot"></span> RIOJANROCK · ACTUALIDAD</span>
+    </div>
+
+    <section class="archive-intro">
+      <div class="section-label">02 / ARCHIVO EDITORIAL</div>
+      <h1>Todas las<br><em>noticias.</em></h1>
+      <p>Bandas, recitales, lanzamientos y cultura rock de La Rioja. Un archivo que crece con cada publicación de RIOJANROCK.</p>
+    </section>
+
+    <section class="archive-controls" aria-label="Buscar y filtrar noticias">
+      <label class="archive-search-label" for="newsSearch">BUSCAR NOTICIAS</label>
+      <input id="newsSearch" type="search" placeholder="Buscar por título, banda o tema…" autocomplete="off">
+      <label class="archive-category-label" for="categoryFilter">CATEGORÍA</label>
+      <select id="categoryFilter">
+        <option value="all">TODAS LAS CATEGORÍAS</option>
+      </select>
+      <div class="archive-results" id="archiveResults" aria-live="polite">CARGANDO ARCHIVO…</div>
+    </section>
+
+    <section class="archive-grid" id="archiveGrid" aria-live="polite">
+      <div class="archive-loading">CARGANDO NOTICIAS…</div>
+    </section>
+
+    <div class="archive-bottom">
+      <a class="btn btn-ghost" href="index.html#noticias">VOLVER A LA PORTADA ↗</a>
+      <a class="btn btn-red" href="https://www.instagram.com/riojanrock/" target="_blank" rel="noopener">SEGUIR EN INSTAGRAM ↗</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> RIOJANROCK · NUESTRO ROCK ESTÁ ACÁ.</span>
+    <a href="index.html#inicio">VOLVER ARRIBA ↑</a>
+  </footer>
+
+  <script src="noticias-archivo.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
